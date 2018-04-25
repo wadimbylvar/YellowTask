@@ -1,0 +1,55 @@
+PODS:
+  - Alamofire (4.7.2)
+  - DTModelStorage (7.0.3):
+    - DTModelStorage/Core (= 7.0.3)
+  - DTModelStorage/Core (7.0.3)
+  - DTTableViewManager (6.1.1):
+    - DTModelStorage (~> 7.0.0)
+  - GoogleMaps/Base (2.7.0)
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
+  - RxAlamofire (4.2.0):
+    - RxAlamofire/Core (= 4.2.0)
+  - RxAlamofire/Core (4.2.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - DTTableViewManager
+  - GooglePlaces
+  - RxAlamofire
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - DTModelStorage
+    - DTTableViewManager
+    - GoogleMaps
+    - GooglePlaces
+    - RxAlamofire
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  DTModelStorage: 24bb695151013519ae1d54aa88fc7f382fda7313
+  DTTableViewManager: cef940f18c89fe9c56f7541add83c2a0a6c0bdd7
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  RxAlamofire: 87a9c588541210cc3e4a1f843ccc3ecf3eb98b31
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 8cd267e5fd13d55209cecf833af57c93a185e645
+
+COCOAPODS: 1.5.0

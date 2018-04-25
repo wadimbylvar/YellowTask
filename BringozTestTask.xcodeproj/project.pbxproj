@@ -7,21 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B069EEB7BB3600193A123F /* Pods_BringozTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67628ACB9DE40BE7DBBA8953 /* Pods_BringozTestTask.framework */; };
+		DE16B8A0208F54D800DE88B7 /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */; };
+		DE16B8A2208F54E800DE88B7 /* SearchAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */; };
+		DE16B8A5208F558400DE88B7 /* PresentableAddressProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A4208F558400DE88B7 /* PresentableAddressProvider.swift */; };
+		DE16B8A8208F561200DE88B7 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A7208F561200DE88B7 /* Address.swift */; };
+		DE16B8AA208F564D00DE88B7 /* GoogleAddressProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */; };
+		DE16B8AC208F6DD200DE88B7 /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8AB208F6DD200DE88B7 /* NSError+Extensions.swift */; };
+		DE16B8AF208F74C200DE88B7 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8AE208F74C200DE88B7 /* LabelTableViewCell.swift */; };
+		DE16B8B2208F810500DE88B7 /* DistanceResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */; };
+		DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */; };
+		DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */; };
+		DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B72090823000DE88B7 /* Array+Extensions.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
-		DE88DFE8208F33DD00CEF036 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE7208F33DD00CEF036 /* ViewController.swift */; };
-		DE88DFEB208F33DD00CEF036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFE9208F33DD00CEF036 /* Main.storyboard */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
+		DE88DFFA208F356600CEF036 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFF9208F356600CEF036 /* AddressesViewController.swift */; };
+		DE88DFFC208F361F00CEF036 /* AddressesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFFB208F361F00CEF036 /* AddressesViewController.xib */; };
+		DE88E000208F36CF00CEF036 /* AddressETATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFFE208F36CF00CEF036 /* AddressETATableViewCell.swift */; };
+		DE88E001208F36CF00CEF036 /* AddressETATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFFF208F36CF00CEF036 /* AddressETATableViewCell.xib */; };
+		DE88E007208F3C9600CEF036 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88E005208F3C9600CEF036 /* ButtonTableViewCell.swift */; };
+		DE88E00A208F3DB700CEF036 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88E009208F3DB700CEF036 /* TableViewCell.swift */; };
+		DE88E011208F475D00CEF036 /* UIKit+DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88E010208F475D00CEF036 /* UIKit+DisposeBag.swift */; };
+		DE88E013208F4A6D00CEF036 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88E012208F4A6D00CEF036 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67628ACB9DE40BE7DBBA8953 /* Pods_BringozTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringozTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89554B3ADF0EA1A04560D7D2 /* Pods-BringozTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringozTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask.debug.xcconfig"; sourceTree = "<group>"; };
+		AEE411B30C30EC94A9CD0773 /* Pods-BringozTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringozTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask.release.xcconfig"; sourceTree = "<group>"; };
+		DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
+		DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressViewController.xib; sourceTree = "<group>"; };
+		DE16B8A4208F558400DE88B7 /* PresentableAddressProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAddressProvider.swift; sourceTree = "<group>"; };
+		DE16B8A7208F561200DE88B7 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddressProvider.swift; sourceTree = "<group>"; };
+		DE16B8AB208F6DD200DE88B7 /* NSError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extensions.swift"; sourceTree = "<group>"; };
+		DE16B8AE208F74C200DE88B7 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceResolver.swift; sourceTree = "<group>"; };
+		DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationDistanceResolver.swift; sourceTree = "<group>"; };
+		DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETA.swift; sourceTree = "<group>"; };
+		DE16B8B72090823000DE88B7 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE88DFE7208F33DD00CEF036 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DE88DFEA208F33DD00CEF036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE88DFEF208F33DF00CEF036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE88DFF1208F33DF00CEF036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE88DFF9208F356600CEF036 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
+		DE88DFFB208F361F00CEF036 /* AddressesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressesViewController.xib; sourceTree = "<group>"; };
+		DE88DFFE208F36CF00CEF036 /* AddressETATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressETATableViewCell.swift; sourceTree = "<group>"; };
+		DE88DFFF208F36CF00CEF036 /* AddressETATableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressETATableViewCell.xib; sourceTree = "<group>"; };
+		DE88E005208F3C9600CEF036 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		DE88E009208F3DB700CEF036 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		DE88E010208F475D00CEF036 /* UIKit+DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+DisposeBag.swift"; sourceTree = "<group>"; };
+		DE88E012208F4A6D00CEF036 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +67,84 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B069EEB7BB3600193A123F /* Pods_BringozTestTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		818C82D9DB4909BE4EFFA814 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67628ACB9DE40BE7DBBA8953 /* Pods_BringozTestTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BC98720FA7534A17A79BF46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89554B3ADF0EA1A04560D7D2 /* Pods-BringozTestTask.debug.xcconfig */,
+				AEE411B30C30EC94A9CD0773 /* Pods-BringozTestTask.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE16B89D208F549E00DE88B7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE88DFF8208F351300CEF036 /* AddressesController */,
+				DE16B89E208F54A800DE88B7 /* SearchAddressController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DE16B89E208F54A800DE88B7 /* SearchAddressController */ = {
+			isa = PBXGroup;
+			children = (
+				DE16B8A3208F555D00DE88B7 /* Services */,
+				DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */,
+				DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */,
+			);
+			path = SearchAddressController;
+			sourceTree = "<group>";
+		};
+		DE16B8A3208F555D00DE88B7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DE16B8A6208F55E300DE88B7 /* AddressProviders */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DE16B8A6208F55E300DE88B7 /* AddressProviders */ = {
+			isa = PBXGroup;
+			children = (
+				DE16B8A7208F561200DE88B7 /* Address.swift */,
+				DE16B8A4208F558400DE88B7 /* PresentableAddressProvider.swift */,
+				DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */,
+			);
+			path = AddressProviders;
+			sourceTree = "<group>";
+		};
+		DE16B8B0208F800200DE88B7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */,
+				DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */,
+				DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DE88DFD9208F33DD00CEF036 = {
 			isa = PBXGroup;
 			children = (
 				DE88DFE4208F33DD00CEF036 /* BringozTestTask */,
 				DE88DFE3208F33DD00CEF036 /* Products */,
+				9BC98720FA7534A17A79BF46 /* Pods */,
+				818C82D9DB4909BE4EFFA814 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +160,95 @@
 			isa = PBXGroup;
 			children = (
 				DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */,
-				DE88DFE7208F33DD00CEF036 /* ViewController.swift */,
-				DE88DFE9208F33DD00CEF036 /* Main.storyboard */,
+				DE88E00B208F46C800CEF036 /* Extensions */,
+				DE88E002208F3C5400CEF036 /* Base Classes */,
+				DE16B89D208F549E00DE88B7 /* Controllers */,
+				DE88DFF7208F34E100CEF036 /* Resources */,
+			);
+			path = BringozTestTask;
+			sourceTree = "<group>";
+		};
+		DE88DFF7208F34E100CEF036 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				DE88DFEC208F33DF00CEF036 /* Assets.xcassets */,
 				DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */,
 				DE88DFF1208F33DF00CEF036 /* Info.plist */,
 			);
-			path = BringozTestTask;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE88DFF8208F351300CEF036 /* AddressesController */ = {
+			isa = PBXGroup;
+			children = (
+				DE16B8B0208F800200DE88B7 /* Services */,
+				DE88DFFD208F367000CEF036 /* Cells */,
+				DE88DFF9208F356600CEF036 /* AddressesViewController.swift */,
+				DE88DFFB208F361F00CEF036 /* AddressesViewController.xib */,
+			);
+			path = AddressesController;
+			sourceTree = "<group>";
+		};
+		DE88DFFD208F367000CEF036 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE88DFFE208F36CF00CEF036 /* AddressETATableViewCell.swift */,
+				DE88DFFF208F36CF00CEF036 /* AddressETATableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE88E002208F3C5400CEF036 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DE88E003208F3C6300CEF036 /* UIKit */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
+		DE88E003208F3C6300CEF036 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DE88E004208F3C6900CEF036 /* UITableViewCells */,
+				DE88E012208F4A6D00CEF036 /* TableViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		DE88E004208F3C6900CEF036 /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DE88E009208F3DB700CEF036 /* TableViewCell.swift */,
+				DE16B8AE208F74C200DE88B7 /* LabelTableViewCell.swift */,
+				DE88E005208F3C9600CEF036 /* ButtonTableViewCell.swift */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		DE88E00B208F46C800CEF036 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE88E00D208F46F800CEF036 /* Rx */,
+				DE88E00C208F46D000CEF036 /* UIKit */,
+				DE16B8B72090823000DE88B7 /* Array+Extensions.swift */,
+				DE16B8AB208F6DD200DE88B7 /* NSError+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE88E00C208F46D000CEF036 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		DE88E00D208F46F800CEF036 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				DE88E010208F475D00CEF036 /* UIKit+DisposeBag.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE88DFF4208F33DF00CEF036 /* Build configuration list for PBXNativeTarget "BringozTestTask" */;
 			buildPhases = (
+				93F573FE5732255FE0A75C96 /* [CP] Check Pods Manifest.lock */,
 				DE88DFDE208F33DD00CEF036 /* Sources */,
 				DE88DFDF208F33DD00CEF036 /* Frameworks */,
 				DE88DFE0208F33DD00CEF036 /* Resources */,
+				2CE7DC3F0CD658826F5FF12B /* [CP] Embed Pods Frameworks */,
+				6AC2C4C6EA3257E018283712 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,33 +314,111 @@
 			files = (
 				DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */,
 				DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */,
-				DE88DFEB208F33DD00CEF036 /* Main.storyboard in Resources */,
+				DE16B8A2208F54E800DE88B7 /* SearchAddressViewController.xib in Resources */,
+				DE88E001208F36CF00CEF036 /* AddressETATableViewCell.xib in Resources */,
+				DE88DFFC208F361F00CEF036 /* AddressesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CE7DC3F0CD658826F5FF12B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DTModelStorage/DTModelStorage.framework",
+				"${BUILT_PRODUCTS_DIR}/DTTableViewManager/DTTableViewManager.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTModelStorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTableViewManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AC2C4C6EA3257E018283712 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93F573FE5732255FE0A75C96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BringozTestTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE88DFDE208F33DD00CEF036 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE88DFE8208F33DD00CEF036 /* ViewController.swift in Sources */,
+				DE88E00A208F3DB700CEF036 /* TableViewCell.swift in Sources */,
+				DE16B8AA208F564D00DE88B7 /* GoogleAddressProvider.swift in Sources */,
+				DE88E013208F4A6D00CEF036 /* TableViewController.swift in Sources */,
+				DE88E011208F475D00CEF036 /* UIKit+DisposeBag.swift in Sources */,
+				DE88E000208F36CF00CEF036 /* AddressETATableViewCell.swift in Sources */,
+				DE16B8A8208F561200DE88B7 /* Address.swift in Sources */,
 				DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */,
+				DE16B8A0208F54D800DE88B7 /* SearchAddressViewController.swift in Sources */,
+				DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */,
+				DE16B8A5208F558400DE88B7 /* PresentableAddressProvider.swift in Sources */,
+				DE16B8AC208F6DD200DE88B7 /* NSError+Extensions.swift in Sources */,
+				DE88DFFA208F356600CEF036 /* AddressesViewController.swift in Sources */,
+				DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */,
+				DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */,
+				DE88E007208F3C9600CEF036 /* ButtonTableViewCell.swift in Sources */,
+				DE16B8B2208F810500DE88B7 /* DistanceResolver.swift in Sources */,
+				DE16B8AF208F74C200DE88B7 /* LabelTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DE88DFE9208F33DD00CEF036 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE88DFEA208F33DD00CEF036 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -278,10 +546,13 @@
 		};
 		DE88DFF5208F33DF00CEF036 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89554B3ADF0EA1A04560D7D2 /* Pods-BringozTestTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BringozTestTask/Info.plist;
+				DEVELOPMENT_TEAM = 9EFHXU4PS9;
+				INFOPLIST_FILE = "$(SRCROOT)/BringozTestTask/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,10 +566,13 @@
 		};
 		DE88DFF6208F33DF00CEF036 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEE411B30C30EC94A9CD0773 /* Pods-BringozTestTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BringozTestTask/Info.plist;
+				DEVELOPMENT_TEAM = 9EFHXU4PS9;
+				INFOPLIST_FILE = "$(SRCROOT)/BringozTestTask/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
