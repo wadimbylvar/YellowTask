@@ -8,6 +8,11 @@
 
 import RxSwift
 
+protocol PresentableAddress {
+  var name: String { get }
+  func address() -> Observable<Address>
+}
+
 protocol PresentableAddressProvider {
   func presentableAddresses(for name: String) -> Observable<[PresentableAddress]>
 }

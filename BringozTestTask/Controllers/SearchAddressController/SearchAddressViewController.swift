@@ -13,6 +13,7 @@ import DTTableViewManager
 
 class SearchAddressViewController: TableViewController {
   
+  // MARK: Properties
   @IBOutlet weak var searchBar: UISearchBar!
   
   lazy var addressProvider: PresentableAddressProvider = GoogleAddressProvider()
@@ -26,6 +27,7 @@ class SearchAddressViewController: TableViewController {
     
     title = "Add address"
     
+    searchBar.becomeFirstResponder()
     searchBar.rx.text
       .skip(1)
       .throttle(0.3, scheduler: SerialDispatchQueueScheduler(qos: .default))
@@ -66,6 +68,7 @@ class SearchAddressViewController: TableViewController {
     }).disposed(by: disposeBag)
   }
   
+  // MARK: - Actions
   private func updateTableView(presentableAddresses: [PresentableAddress]) {
     let models = presentableAddresses.map { LabelTableViewCellModel(text: $0.name) }
     manager.memoryStorage.setItems(models)

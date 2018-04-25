@@ -19,6 +19,7 @@
 		DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */; };
 		DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */; };
 		DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B72090823000DE88B7 /* Array+Extensions.swift */; };
+		DE30960A2090CD4A00A62D8B /* AddressWithETABinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
@@ -47,6 +48,7 @@
 		DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationDistanceResolver.swift; sourceTree = "<group>"; };
 		DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETA.swift; sourceTree = "<group>"; };
 		DE16B8B72090823000DE88B7 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETABinder.swift; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		DE16B8B0208F800200DE88B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */,
 				DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */,
 				DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */,
 				DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */,
@@ -412,6 +415,7 @@
 				DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */,
 				DE88E007208F3C9600CEF036 /* ButtonTableViewCell.swift in Sources */,
 				DE16B8B2208F810500DE88B7 /* DistanceResolver.swift in Sources */,
+				DE30960A2090CD4A00A62D8B /* AddressWithETABinder.swift in Sources */,
 				DE16B8AF208F74C200DE88B7 /* LabelTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,14 @@ import RxSwift
 import RxCocoa
 import DTTableViewManager
 
+fileprivate let cellBindedColor = UIColor.lightGray
+fileprivate let cellDefaultColor = UIColor.clear
+
 class AddressesViewController: TableViewController {
   
+  // MARK: Properties
   var addresses: [AddressWithETA] = []
-  var addressCellModels: [AddressETATableViewCellModel] = []
+  var addressesCellModels: [AddressETATableViewCellModel] = []
   
   let speed = 10.0 // measured in m/sec
   
@@ -32,9 +36,9 @@ class AddressesViewController: TableViewController {
   }()
   
   // MARK: - Life
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    tableView.isEditing = false
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    recalculateETA()
   }
   
   override func setupForm() {
@@ -56,19 +60,78 @@ class AddressesViewController: TableViewController {
   override func setupTable() {
     super.setupTable()
     
+    tableView.allowsSelectionDuringEditing = false
+    
     manager.register(AddressETATableViewCell.self)
     manager.register(ButtonTableViewCell.self)
     
+    manager.configure(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
+      guard let wself = self else { return }
+      cell.backgroundColor = wself.cellBackgroundColor(on: indexPath.row)
+    }
     manager.configure(ButtonTableViewCell.self) { [weak self] (cell, model, indexPath) in
+      cell.selectionStyle = .none
       cell.buttonInsets = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
       self?.setupAddAddressButton(cell.button)
     }
     
-    manager.canMove(AddressETATableViewCell.self) { (cell, model, indexPath) -> Bool in
-      return true
+    manager.didSelect(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
+      guard let wself = self else { return }
+      wself.tableView.deselectRow(at: indexPath, animated: true)
+      
+      let address = wself.addresses[indexPath.row]
+      guard let previousAddress = wself.addresses[safe: indexPath.row - 1] else {
+        address.binder.unbind()
+        return
+      }
+      
+      if address.binder.isBinded() {
+        address.binder.unbind()
+      } else {
+        address.binder.bind(previousAddress, rule: nil)
+      }
+      
+      cell.backgroundColor = wself.cellBackgroundColor(on: indexPath.row)
+      
+      if indexPath.row != 0 {
+        let indexPathOfPreviousCell = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+        let color = wself.cellBackgroundColor(on: indexPathOfPreviousCell.row)
+        wself.tableView.cellForRow(at: indexPathOfPreviousCell)?.backgroundColor = color
+      }
     }
-    manager.move(AddressETATableViewCell.self) { [weak self] (sourceIndexPath, cell, model, destinationIndexPath) in
-      self?.manager.memoryStorage.moveItemWithoutAnimation(from: sourceIndexPath, to: destinationIndexPath)
+    
+    manager.canMove(AddressETATableViewCell.self) { (cell, model, indexPath) -> Bool in true }
+    manager.canMove(ButtonTableViewCell.self) { (cell, model, indexPath) -> Bool in false }
+    
+    manager.targetIndexPathForMove(AddressETATableViewCell.self) { [unowned self] (to, cell, model, from) -> IndexPath in
+      if from.section != to.section {
+        return from
+      }
+      
+      if to.row == 0 || to.row == self.addresses.count - 1 {
+        return to
+      }
+      
+      if from.row > to.row {
+        if let previousAddress = self.addresses[safe: to.row - 1],
+           let targetAddress = self.addresses[safe: to.row],
+           targetAddress.binder.isBinded(to: previousAddress) { return from }
+      } else {
+        if let previousAddress = self.addresses[safe: to.row],
+           let targetAddress = self.addresses[safe: to.row + 1],
+           targetAddress.binder.isBinded(to: previousAddress) { return from }
+      }
+      
+      return to
+    }
+    
+    manager.move(AddressETATableViewCell.self) { [weak self] (destinationIndexPath, cell, model, sourceIndexPath) in
+      guard let wself = self else { return }
+      wself.manager.memoryStorage.moveItemWithoutAnimation(from: sourceIndexPath, to: destinationIndexPath)
+      wself.addresses[sourceIndexPath.row].binder.unbind()
+      wself.addresses[safe: sourceIndexPath.row + 1]?.binder.unbind()
+      wself.moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
+      wself.recalculateETA()
     }
 
     manager.editingStyle(for: AddressETATableViewCell.self, { (_, _, _) -> UITableViewCellEditingStyle in .none })
@@ -79,11 +142,18 @@ class AddressesViewController: TableViewController {
     manager.memoryStorage.setItemsForAllSections(cellModels())
   }
   
+  private func setupAddAddressButton(_ button: UIButton) {
+    button.setTitleColor(.white, for: .normal)
+    button.backgroundColor = .blue
+    button.layer.cornerRadius = 5
+  }
+  
+  // MARK: - Models
   private func cellModels() -> [[Any]] {
     var cellModels: [[Any]] = []
     
-    let addressesCellModels = addresses.enumerated().map { (index, element) -> AddressETATableViewCellModel in
-      return self.addressETATableViewCellModel(for: element, previousAddressWithETA: addresses[safe: index - 1])
+    addressesCellModels = addresses.enumerated().map { (index, element) -> AddressETATableViewCellModel in
+      return self.addressETATableViewCellModel(for: element.address, previousAddressWithETA: addresses[safe: index - 1])
     }
     cellModels.append(addressesCellModels)
     
@@ -96,65 +166,29 @@ class AddressesViewController: TableViewController {
     return cellModels
   }
   
-  private func addressETATableViewCellModel(for addressWithETA: AddressWithETA, previousAddressWithETA: AddressWithETA?) -> AddressETATableViewCellModel {
-    let title = addressWithETA.address.name
-    let etaDate: Date
-    if let previousAddressWithETA = previousAddressWithETA {
-      let timeInterval = distanceResolver.timeInterval(from: previousAddressWithETA.address,
-                                                       to: addressWithETA.address,
-                                                       with: speed,
-                                                       distanceType: .aerial)
-      etaDate = previousAddressWithETA.eta.addingTimeInterval(timeInterval)
-    } else {
-      etaDate = Date()
+  private func eta(for address: Address, previousAddressWithETA: AddressWithETA?) -> Date {
+    guard let previousAddressWithETA = previousAddressWithETA else {
+      return Date()
     }
-    
+    let timeInterval = distanceResolver.timeInterval(from: previousAddressWithETA.address,
+                                                     to: address,
+                                                     with: speed,
+                                                     distanceType: .aerial)
+    return previousAddressWithETA.eta.addingTimeInterval(timeInterval)
+  }
+  
+  private func addressWithETA(for address: Address, previousAddressWithETA: AddressWithETA?) -> AddressWithETA {
+    let eta = self.eta(for: address, previousAddressWithETA: previousAddressWithETA)
+    return AddressWithETA(address: address, eta: eta)
+  }
+  
+  private func addressETATableViewCellModel(for address: Address, previousAddressWithETA: AddressWithETA?) -> AddressETATableViewCellModel {
+    let etaDate = self.eta(for: address, previousAddressWithETA: previousAddressWithETA)
     let eta = etaDateFormatter.string(from: etaDate)
-    return AddressETATableViewCellModel(title: title, eta: eta)
+    return AddressETATableViewCellModel(title: address.name, eta: eta)
   }
   
-  private func setupAddAddressButton(_ button: UIButton) {
-    button.setTitleColor(.white, for: .normal)
-    button.backgroundColor = .blue
-    button.layer.cornerRadius = 5
-  }
-  
-  private func showSearchAddressController() {
-    guard let navigationController = navigationController else {
-      assertionFailure()
-      return
-    }
-    let vc = SearchAddressViewController()
-    vc.addressSelected.subscribe(onNext: { [weak self] (address) in
-      self?.addNewAddress(address)
-    }).disposed(by: disposeBag)
-    navigationController.pushViewController(vc, animated: true)
-  }
-  
-  private func addNewAddress(_ address: Address) {
-    let etaDate: Date
-    if let lastAddressWithETA = addresses.last {
-      let timeInterval = distanceResolver.timeInterval(from: lastAddressWithETA.address,
-                                                       to: address,
-                                                       with: speed,
-                                                       distanceType: .aerial)
-      etaDate = lastAddressWithETA.eta.addingTimeInterval(timeInterval)
-    } else {
-      etaDate = Date()
-    }
-    let addressWithETA = AddressWithETA(address: address, eta: etaDate)
-    
-    addresses.append(addressWithETA)
-    
-    let title = address.name
-    let eta = etaDateFormatter.string(from: etaDate)
-    let cellModel = AddressETATableViewCellModel(title: title, eta: eta)
-    manager.memoryStorage.updateWithoutAnimations {
-      manager.memoryStorage.addItem(cellModel, toSection: 0)
-    }
-    tableView.reloadData()
-  }
-  
+  // MARK: - NavigationBar buttons' actions
   private func resetData() {
     addresses = []
     manager.memoryStorage.removeItems(fromSection: 0)
@@ -169,5 +203,67 @@ class AddressesViewController: TableViewController {
       editButton.title = "Edit"
       navigationItem.setLeftBarButton(removeButton, animated: true)
     }
+  }
+  
+  // MARK: - Logic
+  private func recalculateETA() {
+    for (index, tuple) in zip(addresses, addressesCellModels).enumerated() {
+      let (addressWithETA, cellModel) = tuple
+      let eta = self.eta(for: addressWithETA.address, previousAddressWithETA: addresses[safe: index - 1])
+      addressWithETA.eta = eta
+      cellModel.etaBehaviorRelay.accept(etaDateFormatter.string(from: eta))
+    }
+  }
+  
+  private func moveModel(from: Int, to: Int) {
+    do {
+      let movedObject = addresses.remove(at: from)
+      addresses.insert(movedObject, at: to)
+    }
+    
+    do {
+      let movedObject = addressesCellModels.remove(at: from)
+      addressesCellModels.insert(movedObject, at: to)
+    }
+  }
+  
+  private func cellBackgroundColor(on index: Int) -> UIColor {
+    if addresses[index].binder.isBinded() {
+      return cellBindedColor
+    }
+    
+    if let nextAddress = addresses[safe: index + 1], nextAddress.binder.isBinded() {
+      return cellBindedColor
+    }
+    
+    return cellDefaultColor
+  }
+  
+  // MARK: - Actions
+  private func addNewAddress(_ address: Address) {
+    recalculateETA()
+    
+    let lastAddressWithETA = addresses.last
+    let addressWithETA = self.addressWithETA(for: address, previousAddressWithETA: lastAddressWithETA)
+    addresses.append(addressWithETA)
+    
+    let cellModel = addressETATableViewCellModel(for: address, previousAddressWithETA: lastAddressWithETA)
+    addressesCellModels.append(cellModel)
+    manager.memoryStorage.updateWithoutAnimations {
+      manager.memoryStorage.addItem(cellModel, toSection: 0)
+    }
+    tableView.reloadData()
+  }
+  
+  private func showSearchAddressController() {
+    guard let navigationController = navigationController else {
+      assertionFailure()
+      return
+    }
+    let vc = SearchAddressViewController()
+    vc.addressSelected.subscribe(onNext: { [weak self] (address) in
+      self?.addNewAddress(address)
+    }).disposed(by: disposeBag)
+    navigationController.pushViewController(vc, animated: true)
   }
 }

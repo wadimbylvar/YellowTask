@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct AddressWithETA {
+class AddressWithETA {
   let address: Address
-  let eta: Date
+  var eta: Date
+  
+  var binder: AddressWithETABinder!
+  
+  init(address: Address, eta: Date) {
+    self.address = address
+    self.eta = eta
+    binder = BaseAddressWithETABinder(owner: self)
+  }
 }
