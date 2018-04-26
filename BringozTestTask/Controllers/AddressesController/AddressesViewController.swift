@@ -95,6 +95,11 @@ class AddressesViewController: TableViewController {
       self?.setupAddAddressButton(cell.button)
     }
     
+    manager.willDisplay(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
+      guard let wself = self else { return }
+      cell.showsReorderControl = wself.tableView.isEditing
+    }
+    
     manager.heightForCell(withItem: ButtonTableViewCellModel.self) { (model, indexPath) -> CGFloat in
       return AddAddressButtonConfiguration.cellHeight
     }
@@ -155,11 +160,6 @@ class AddressesViewController: TableViewController {
       wself.moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
       wself.recalculateETA()
     }
-
-    manager.editingStyle(for: AddressETATableViewCell.self, { (_, _, _) -> UITableViewCellEditingStyle in .none })
-    manager.editingStyle(for: ButtonTableViewCell.self, { (_, _, _) -> UITableViewCellEditingStyle in .none })
-    manager.shouldIndentWhileEditing(AddressETATableViewCell.self, { (_, _, _) -> Bool in false })
-    manager.shouldIndentWhileEditing(ButtonTableViewCell.self, { (_, _, _) -> Bool in false })
     
     manager.memoryStorage.setItemsForAllSections(cellModels())
   }
@@ -302,5 +302,15 @@ class AddressesViewController: TableViewController {
       self?.addNewAddress(address)
     }).disposed(by: disposeBag)
     navigationController.pushViewController(vc, animated: true)
+  }
+}
+
+extension AddressesViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    return .none
+  }
+  
+  func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    return false
   }
 }
