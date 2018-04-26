@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  BringozTestTask
+
+  Created by Vadim Shikulo on 4/26/18.
+  Copyright © 2018 Bringoz. All rights reserved.
+*/
+
+"key.general.reset" = "Сброс";
+"key.general.edit" = "Изменить";
+"key.general.done" = "Готово";
+
+"key.addressViewController.addAddress" = "Добавить адрес";
+"key.addressViewController.addresses" = "Адреса";
+"key.addressViewController.eta" = "ETA:";
+
+"key.searchAddressViewController.addAddress" = "Добавить адрес";
+"key.searchAddressViewController.search" = "Поиск";

@@ -38,8 +38,8 @@ class AddressesViewController: TableViewController {
   
   var speed = 10.0 // measured in m/sec
   
-  let removeButton = UIBarButtonItem(title: "Reset", style: .plain, target: nil, action: nil)
-  let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
+  let removeButton = UIBarButtonItem(title: LS("key.general.reset"), style: .plain, target: nil, action: nil)
+  let editButton = UIBarButtonItem(title: LS("key.general.edit"), style: .plain, target: nil, action: nil)
   
   lazy var etaCalculator: ETACalculator = CoreLocationETACalculator()
   
@@ -59,13 +59,13 @@ class AddressesViewController: TableViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    tableView.isEditing = false
+    turnEditingModeOff()
   }
   
   override func setupForm() {
     super.setupForm()
     
-    title = "Addresses"
+    title = LS("key.addressViewController.addresses")
     
     removeButton.rx.tap.subscribe(onNext: { [weak self] () in
       self?.resetData()
@@ -73,7 +73,7 @@ class AddressesViewController: TableViewController {
     navigationItem.leftBarButtonItem = removeButton
     
     editButton.rx.tap.subscribe(onNext: { [weak self] () in
-      self?.editButtonTapped()
+      self?.reverseMode()
     }).disposed(by: disposeBag)
     navigationItem.rightBarButtonItem = editButton
   }
@@ -178,7 +178,7 @@ class AddressesViewController: TableViewController {
     }
     cellModels.append(addressesCellModels)
     
-    let buttonCellModel = ButtonTableViewCellModel(title: "Add address")
+    let buttonCellModel = ButtonTableViewCellModel(title: LS("key.addressViewController.addAddress"))
     buttonCellModel.buttonPublishSubject.subscribe(onNext: { [weak self] () in
       self?.showSearchAddressController()
     }).disposed(by: disposeBag)
@@ -216,15 +216,24 @@ class AddressesViewController: TableViewController {
     manager.memoryStorage.removeItems(fromSection: 0)
   }
   
-  private func editButtonTapped() {
-    tableView.isEditing = !tableView.isEditing
+  private func reverseMode() {
     if tableView.isEditing {
-      editButton.title = "Done"
-      navigationItem.setLeftBarButton(nil, animated: true)
+      turnEditingModeOff()
     } else {
-      editButton.title = "Edit"
-      navigationItem.setLeftBarButton(removeButton, animated: true)
+      turnEditingModeOn()
     }
+  }
+  
+  private func turnEditingModeOn() {
+    tableView.isEditing = true
+    editButton.title = LS("key.general.done")
+    navigationItem.setLeftBarButton(nil, animated: true)
+  }
+  
+  private func turnEditingModeOff() {
+    tableView.isEditing = false
+    editButton.title = LS("key.general.edit")
+    navigationItem.setLeftBarButton(removeButton, animated: true)
   }
   
   // MARK: - Logic
@@ -237,19 +246,6 @@ class AddressesViewController: TableViewController {
     }
   }
   
-  private func moveModel(from: Int, to: Int) {
-    do {
-      let movedObject = addresses.remove(at: from)
-      addresses.insert(movedObject, at: to)
-    }
-    
-    do {
-      let movedObject = addressesCellModels.remove(at: from)
-      addressesCellModels.insert(movedObject, at: to)
-    }
-  }
-  
-  // MARK: - Actions
   private func addNewAddress(_ address: Address) {
     recalculateETA()
     
@@ -265,16 +261,16 @@ class AddressesViewController: TableViewController {
     tableView.reloadData()
   }
   
-  private func showSearchAddressController() {
-    guard let navigationController = navigationController else {
-      assertionFailure()
-      return
+  private func moveModel(from: Int, to: Int) {
+    do {
+      let movedObject = addresses.remove(at: from)
+      addresses.insert(movedObject, at: to)
     }
-    let vc = SearchAddressViewController()
-    vc.addressSelected.subscribe(onNext: { [weak self] (address) in
-      self?.addNewAddress(address)
-    }).disposed(by: disposeBag)
-    navigationController.pushViewController(vc, animated: true)
+    
+    do {
+      let movedObject = addressesCellModels.remove(at: from)
+      addressesCellModels.insert(movedObject, at: to)
+    }
   }
   
   private func bindModel(at index: Int, to model: AddressWithETA, rule: AddressBindingRule? = nil) {
@@ -287,5 +283,18 @@ class AddressesViewController: TableViewController {
     addresses[index].binder.unbind()
     addressesCellModels[index].topBridgeViewHidden.accept(true)
     addressesCellModels[safe: index - 1]?.bottomBridgeViewHidden.accept(true)
+  }
+  
+  // MARK: - Actions
+  private func showSearchAddressController() {
+    guard let navigationController = navigationController else {
+      assertionFailure()
+      return
+    }
+    let vc = SearchAddressViewController()
+    vc.addressSelected.subscribe(onNext: { [weak self] (address) in
+      self?.addNewAddress(address)
+    }).disposed(by: disposeBag)
+    navigationController.pushViewController(vc, animated: true)
   }
 }

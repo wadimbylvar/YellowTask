@@ -34,9 +34,10 @@ class SearchAddressViewController: TableViewController {
   override func setupForm() {
     super.setupForm()
     
-    title = "Add address"
+    title = LS("key.searchAddressViewController.addAddress")
     
     searchBar.becomeFirstResponder()
+    searchBar.placeholder = LS("key.searchAddressViewController.search")
     searchBar.rx.text
       .skip(1)
       .throttle(throttleInterval, scheduler: SerialDispatchQueueScheduler(qos: .default))

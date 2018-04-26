@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00B069EEB7BB3600193A123F /* Pods_BringozTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67628ACB9DE40BE7DBBA8953 /* Pods_BringozTestTask.framework */; };
 		DE16B8A0208F54D800DE88B7 /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */; };
-		DE16B8A2208F54E800DE88B7 /* SearchAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */; };
 		DE16B8A5208F558400DE88B7 /* PresentableAddressProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A4208F558400DE88B7 /* PresentableAddressProvider.swift */; };
 		DE16B8A8208F561200DE88B7 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A7208F561200DE88B7 /* Address.swift */; };
 		DE16B8AA208F564D00DE88B7 /* GoogleAddressProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */; };
@@ -24,6 +23,10 @@
 		DE3096112091ACAB00A62D8B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */; };
 		DE3096132091ADEA00A62D8B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096122091ADEA00A62D8B /* View.swift */; };
 		DE3096152091C21F00A62D8B /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096142091C21F00A62D8B /* DateFormats.swift */; };
+		DE30961A2091C9B800A62D8B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE30961C2091C9B800A62D8B /* Localizable.strings */; };
+		DE30961F2091CC2C00A62D8B /* SearchAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3096212091CC2C00A62D8B /* SearchAddressViewController.xib */; };
+		DE3096262091CD0600A62D8B /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096252091CD0600A62D8B /* Localizable.swift */; };
+		DE3096282091CD2C00A62D8B /* XIBLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096272091CD2C00A62D8B /* XIBLocalizable.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
@@ -42,7 +45,6 @@
 		89554B3ADF0EA1A04560D7D2 /* Pods-BringozTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringozTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		AEE411B30C30EC94A9CD0773 /* Pods-BringozTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringozTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-BringozTestTask/Pods-BringozTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
-		DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressViewController.xib; sourceTree = "<group>"; };
 		DE16B8A4208F558400DE88B7 /* PresentableAddressProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAddressProvider.swift; sourceTree = "<group>"; };
 		DE16B8A7208F561200DE88B7 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddressProvider.swift; sourceTree = "<group>"; };
@@ -57,6 +59,12 @@
 		DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3096122091ADEA00A62D8B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DE3096142091C21F00A62D8B /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
+		DE3096162091C8D500A62D8B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DE30961D2091C9C400A62D8B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE30961E2091CA3000A62D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE3096202091CC2C00A62D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchAddressViewController.xib; sourceTree = "<group>"; };
+		DE3096252091CD0600A62D8B /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		DE3096272091CD2C00A62D8B /* XIBLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBLocalizable.swift; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,7 +123,7 @@
 			children = (
 				DE16B8A3208F555D00DE88B7 /* Services */,
 				DE16B89F208F54D800DE88B7 /* SearchAddressViewController.swift */,
-				DE16B8A1208F54E800DE88B7 /* SearchAddressViewController.xib */,
+				DE3096212091CC2C00A62D8B /* SearchAddressViewController.xib */,
 			);
 			path = SearchAddressController;
 			sourceTree = "<group>";
@@ -157,6 +165,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DE3096172091C92D00A62D8B /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				DE30961C2091C9B800A62D8B /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+		DE3096242091CCE700A62D8B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DE3096252091CD0600A62D8B /* Localizable.swift */,
+				DE3096272091CD2C00A62D8B /* XIBLocalizable.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		DE88DFD9208F33DD00CEF036 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +216,7 @@
 		DE88DFF7208F34E100CEF036 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE3096172091C92D00A62D8B /* Localizations */,
 				DE88DFEC208F33DF00CEF036 /* Assets.xcassets */,
 				DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */,
 				DE88DFF1208F33DF00CEF036 /* Info.plist */,
@@ -261,6 +287,7 @@
 		DE88E00C208F46D000CEF036 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				DE3096242091CCE700A62D8B /* Localization */,
 				DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */,
 			);
 			path = UIKit;
@@ -319,6 +346,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DE88DFD9208F33DD00CEF036;
 			productRefGroup = DE88DFE3208F33DD00CEF036 /* Products */;
@@ -336,8 +364,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */,
+				DE30961A2091C9B800A62D8B /* Localizable.strings in Resources */,
 				DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */,
-				DE16B8A2208F54E800DE88B7 /* SearchAddressViewController.xib in Resources */,
+				DE30961F2091CC2C00A62D8B /* SearchAddressViewController.xib in Resources */,
 				DE88E001208F36CF00CEF036 /* AddressETATableViewCell.xib in Resources */,
 				DE88DFFC208F361F00CEF036 /* AddressesViewController.xib in Resources */,
 			);
@@ -421,7 +450,9 @@
 			files = (
 				DE88E00A208F3DB700CEF036 /* TableViewCell.swift in Sources */,
 				DE16B8AA208F564D00DE88B7 /* GoogleAddressProvider.swift in Sources */,
+				DE3096262091CD0600A62D8B /* Localizable.swift in Sources */,
 				DE88E013208F4A6D00CEF036 /* TableViewController.swift in Sources */,
+				DE3096282091CD2C00A62D8B /* XIBLocalizable.swift in Sources */,
 				DE88E011208F475D00CEF036 /* UIKit+DisposeBag.swift in Sources */,
 				DE88E000208F36CF00CEF036 /* AddressETATableViewCell.swift in Sources */,
 				DE3096132091ADEA00A62D8B /* View.swift in Sources */,
@@ -447,10 +478,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DE30961C2091C9B800A62D8B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE30961D2091C9C400A62D8B /* ru */,
+				DE30961E2091CA3000A62D8B /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DE3096212091CC2C00A62D8B /* SearchAddressViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE3096202091CC2C00A62D8B /* Base */,
+			);
+			name = SearchAddressViewController.xib;
+			sourceTree = "<group>";
+		};
 		DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DE88DFEF208F33DF00CEF036 /* Base */,
+				DE3096162091C8D500A62D8B /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -462,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -522,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

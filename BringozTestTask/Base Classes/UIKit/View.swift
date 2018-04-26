@@ -30,5 +30,5 @@ open class View: UIView {
     super.updateConstraints()
   }
   
-  open func setupViewConstraints() {}
+  open func setupViewConstraints() { }
 }
