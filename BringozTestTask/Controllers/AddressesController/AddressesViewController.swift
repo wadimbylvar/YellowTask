@@ -41,7 +41,7 @@ class AddressesViewController: TableViewController {
   let removeButton = UIBarButtonItem(title: "Reset", style: .plain, target: nil, action: nil)
   let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
   
-  lazy var distanceResolver: ETACalculator = CoreLocationETACalculator()
+  lazy var etaCalculator: ETACalculator = CoreLocationETACalculator()
   
   lazy var etaDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
@@ -96,7 +96,7 @@ class AddressesViewController: TableViewController {
     }
     
     manager.heightForCell(withItem: ButtonTableViewCellModel.self) { (model, indexPath) -> CGFloat in
-      return AddAddressButtonConfiguration.height
+      return AddAddressButtonConfiguration.cellHeight
     }
     
     manager.didSelect(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
@@ -191,10 +191,10 @@ class AddressesViewController: TableViewController {
     guard let previousAddressWithETA = previousAddressWithETA else {
       return Date()
     }
-    let timeInterval = distanceResolver.timeInterval(from: previousAddressWithETA.address,
-                                                     to: address,
-                                                     with: speed,
-                                                     distanceType: .aerial)
+    let timeInterval = etaCalculator.timeInterval(from: previousAddressWithETA.address,
+                                                  to: address,
+                                                  with: speed,
+                                                  distanceType: .aerial)
     return previousAddressWithETA.eta.addingTimeInterval(timeInterval)
   }
   
