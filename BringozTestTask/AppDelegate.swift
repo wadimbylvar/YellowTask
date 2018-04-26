@@ -41,6 +41,6 @@ fileprivate extension AppDelegate {
   }
   
   private func setupGoogleSDKs() {
-    GMSPlacesClient.provideAPIKey("AIzaSyD_ulMZsmR3mQ5IhwNf1rGqfNjenSiSi4w")
+    GMSPlacesClient.provideAPIKey(<#GOOGLE_PLACES_API_KEY#>)
   }
 }
