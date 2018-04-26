@@ -25,7 +25,7 @@ class SearchAddressViewController: TableViewController {
   // MARK: Properties
   @IBOutlet weak var searchBar: UISearchBar!
   
-  lazy var addressProvider: PresentableAddressProvider = GoogleAddressProvider()
+  var addressProvider: PresentableAddressProvider!
   
   let addressesBehaviorRelay = BehaviorRelay<[PresentableAddress]>(value: [])
   let addressSelected = PublishSubject<Address>()

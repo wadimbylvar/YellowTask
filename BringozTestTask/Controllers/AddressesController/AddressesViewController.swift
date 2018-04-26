@@ -41,7 +41,7 @@ class AddressesViewController: TableViewController {
   let removeButton = UIBarButtonItem(title: LS("key.general.reset"), style: .plain, target: nil, action: nil)
   let editButton = UIBarButtonItem(title: LS("key.general.edit"), style: .plain, target: nil, action: nil)
   
-  lazy var etaCalculator: ETACalculator = CoreLocationETACalculator()
+  var etaCalculator: ETACalculator!
   
   lazy var etaDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
@@ -143,11 +143,13 @@ class AddressesViewController: TableViewController {
       guard let wself = self else { return }
       wself.manager.memoryStorage.moveItemWithoutAnimation(from: sourceIndexPath, to: destinationIndexPath)
       
-      wself.unbindModel(at: sourceIndexPath.row)
-      
-      let nextItemIndex = sourceIndexPath.row + 1
-      if nextItemIndex < wself.addresses.count {
-        wself.unbindModel(at: nextItemIndex)
+      if sourceIndexPath != destinationIndexPath {
+        wself.unbindModel(at: sourceIndexPath.row)
+        
+        let nextItemIndex = sourceIndexPath.row + 1
+        if nextItemIndex < wself.addresses.count {
+          wself.unbindModel(at: nextItemIndex)
+        }
       }
       
       wself.moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
@@ -291,7 +293,11 @@ class AddressesViewController: TableViewController {
       assertionFailure()
       return
     }
-    let vc = SearchAddressViewController()
+    
+    guard let vc = ViewControllersFactory.shared.viewController(for: .searchAddress) as? SearchAddressViewController else {
+      return
+    }
+    
     vc.addressSelected.subscribe(onNext: { [weak self] (address) in
       self?.addNewAddress(address)
     }).disposed(by: disposeBag)

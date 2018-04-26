@@ -27,6 +27,7 @@
 		DE30961F2091CC2C00A62D8B /* SearchAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3096212091CC2C00A62D8B /* SearchAddressViewController.xib */; };
 		DE3096262091CD0600A62D8B /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096252091CD0600A62D8B /* Localizable.swift */; };
 		DE3096282091CD2C00A62D8B /* XIBLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096272091CD2C00A62D8B /* XIBLocalizable.swift */; };
+		DE30962B2091D8BA00A62D8B /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30962A2091D8BA00A62D8B /* ViewControllersFactory.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 		DE3096202091CC2C00A62D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchAddressViewController.xib; sourceTree = "<group>"; };
 		DE3096252091CD0600A62D8B /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		DE3096272091CD2C00A62D8B /* XIBLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBLocalizable.swift; sourceTree = "<group>"; };
+		DE30962A2091D8BA00A62D8B /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		DE3096292091D8A600A62D8B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DE30962A2091D8BA00A62D8B /* ViewControllersFactory.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		DE88DFD9208F33DD00CEF036 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */,
+				DE3096292091D8A600A62D8B /* Core */,
 				DE30960D2091AC0A00A62D8B /* Views */,
 				DE88E00B208F46C800CEF036 /* Extensions */,
 				DE88E002208F3C5400CEF036 /* Base Classes */,
@@ -459,6 +470,7 @@
 				DE30960F2091AC3800A62D8B /* RadioButton.swift in Sources */,
 				DE16B8A8208F561200DE88B7 /* Address.swift in Sources */,
 				DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */,
+				DE30962B2091D8BA00A62D8B /* ViewControllersFactory.swift in Sources */,
 				DE16B8A0208F54D800DE88B7 /* SearchAddressViewController.swift in Sources */,
 				DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */,
 				DE16B8A5208F558400DE88B7 /* PresentableAddressProvider.swift in Sources */,
