@@ -11,9 +11,6 @@ import RxSwift
 import RxCocoa
 import DTTableViewManager
 
-fileprivate let cellBindedColor = UIColor.lightGray
-fileprivate let cellDefaultColor = UIColor.clear
-
 class AddressesViewController: TableViewController {
   
   // MARK: Properties
@@ -84,14 +81,13 @@ class AddressesViewController: TableViewController {
       
       let address = wself.addresses[indexPath.row]
       guard let previousAddress = wself.addresses[safe: indexPath.row - 1] else {
-        address.binder.unbind()
         return
       }
       
       if address.binder.isBinded() {
-        address.binder.unbind()
+        wself.unbindModel(at: indexPath.row)
       } else {
-        address.binder.bind(previousAddress, rule: nil)
+        wself.bindModel(at: indexPath.row, to: previousAddress)
       }
     }
     
@@ -123,8 +119,14 @@ class AddressesViewController: TableViewController {
     manager.move(AddressETATableViewCell.self) { [weak self] (destinationIndexPath, cell, model, sourceIndexPath) in
       guard let wself = self else { return }
       wself.manager.memoryStorage.moveItemWithoutAnimation(from: sourceIndexPath, to: destinationIndexPath)
-      wself.addresses[sourceIndexPath.row].binder.unbind()
-      wself.addresses[safe: sourceIndexPath.row + 1]?.binder.unbind()
+      
+      wself.unbindModel(at: sourceIndexPath.row)
+      
+      let nextItemIndex = sourceIndexPath.row + 1
+      if nextItemIndex < wself.addresses.count {
+        wself.unbindModel(at: nextItemIndex)
+      }
+      
       wself.moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
       wself.recalculateETA()
     }
@@ -249,5 +251,17 @@ class AddressesViewController: TableViewController {
       self?.addNewAddress(address)
     }).disposed(by: disposeBag)
     navigationController.pushViewController(vc, animated: true)
+  }
+  
+  private func bindModel(at index: Int, to model: AddressWithETA, rule: AddressBindingRule? = nil) {
+    addresses[index].binder.bind(model, rule: rule)
+    addressesCellModels[index].topBridgeViewHidden.accept(false)
+    addressesCellModels[safe: index - 1]?.bottomBridgeViewHidden.accept(false)
+  }
+  
+  private func unbindModel(at index: Int) {
+    addresses[index].binder.unbind()
+    addressesCellModels[index].topBridgeViewHidden.accept(true)
+    addressesCellModels[safe: index - 1]?.bottomBridgeViewHidden.accept(true)
   }
 }

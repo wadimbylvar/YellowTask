@@ -20,6 +20,9 @@
 		DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */; };
 		DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B72090823000DE88B7 /* Array+Extensions.swift */; };
 		DE30960A2090CD4A00A62D8B /* AddressWithETABinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */; };
+		DE30960F2091AC3800A62D8B /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30960E2091AC3800A62D8B /* RadioButton.swift */; };
+		DE3096112091ACAB00A62D8B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */; };
+		DE3096132091ADEA00A62D8B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096122091ADEA00A62D8B /* View.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
@@ -49,6 +52,9 @@
 		DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETA.swift; sourceTree = "<group>"; };
 		DE16B8B72090823000DE88B7 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETABinder.swift; sourceTree = "<group>"; };
+		DE30960E2091AC3800A62D8B /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		DE3096122091ADEA00A62D8B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +147,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		DE30960D2091AC0A00A62D8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE30960E2091AC3800A62D8B /* RadioButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DE88DFD9208F33DD00CEF036 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */,
+				DE30960D2091AC0A00A62D8B /* Views */,
 				DE88E00B208F46C800CEF036 /* Extensions */,
 				DE88E002208F3C5400CEF036 /* Base Classes */,
 				DE16B89D208F549E00DE88B7 /* Controllers */,
@@ -214,6 +229,7 @@
 			children = (
 				DE88E004208F3C6900CEF036 /* UITableViewCells */,
 				DE88E012208F4A6D00CEF036 /* TableViewController.swift */,
+				DE3096122091ADEA00A62D8B /* View.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -242,6 +258,7 @@
 		DE88E00C208F46D000CEF036 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -404,11 +421,14 @@
 				DE88E013208F4A6D00CEF036 /* TableViewController.swift in Sources */,
 				DE88E011208F475D00CEF036 /* UIKit+DisposeBag.swift in Sources */,
 				DE88E000208F36CF00CEF036 /* AddressETATableViewCell.swift in Sources */,
+				DE3096132091ADEA00A62D8B /* View.swift in Sources */,
+				DE30960F2091AC3800A62D8B /* RadioButton.swift in Sources */,
 				DE16B8A8208F561200DE88B7 /* Address.swift in Sources */,
 				DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */,
 				DE16B8A0208F54D800DE88B7 /* SearchAddressViewController.swift in Sources */,
 				DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */,
 				DE16B8A5208F558400DE88B7 /* PresentableAddressProvider.swift in Sources */,
+				DE3096112091ACAB00A62D8B /* UIColor+Extensions.swift in Sources */,
 				DE16B8AC208F6DD200DE88B7 /* NSError+Extensions.swift in Sources */,
 				DE88DFFA208F356600CEF036 /* AddressesViewController.swift in Sources */,
 				DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */,
