@@ -41,6 +41,11 @@ class AddressesViewController: TableViewController {
     recalculateETA()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    tableView.isEditing = false
+  }
+  
   override func setupForm() {
     super.setupForm()
     
@@ -65,9 +70,8 @@ class AddressesViewController: TableViewController {
     manager.register(AddressETATableViewCell.self)
     manager.register(ButtonTableViewCell.self)
     
-    manager.configure(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
-      guard let wself = self else { return }
-      cell.backgroundColor = wself.cellBackgroundColor(on: indexPath.row)
+    manager.configure(AddressETATableViewCell.self) { (cell, model, indexPath) in
+      cell.selectionStyle = .none
     }
     manager.configure(ButtonTableViewCell.self) { [weak self] (cell, model, indexPath) in
       cell.selectionStyle = .none
@@ -77,7 +81,6 @@ class AddressesViewController: TableViewController {
     
     manager.didSelect(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
       guard let wself = self else { return }
-      wself.tableView.deselectRow(at: indexPath, animated: true)
       
       let address = wself.addresses[indexPath.row]
       guard let previousAddress = wself.addresses[safe: indexPath.row - 1] else {
@@ -89,14 +92,6 @@ class AddressesViewController: TableViewController {
         address.binder.unbind()
       } else {
         address.binder.bind(previousAddress, rule: nil)
-      }
-      
-      cell.backgroundColor = wself.cellBackgroundColor(on: indexPath.row)
-      
-      if indexPath.row != 0 {
-        let indexPathOfPreviousCell = IndexPath(row: indexPath.row - 1, section: indexPath.section)
-        let color = wself.cellBackgroundColor(on: indexPathOfPreviousCell.row)
-        wself.tableView.cellForRow(at: indexPathOfPreviousCell)?.backgroundColor = color
       }
     }
     
@@ -191,6 +186,7 @@ class AddressesViewController: TableViewController {
   // MARK: - NavigationBar buttons' actions
   private func resetData() {
     addresses = []
+    addressesCellModels = []
     manager.memoryStorage.removeItems(fromSection: 0)
   }
   
@@ -225,18 +221,6 @@ class AddressesViewController: TableViewController {
       let movedObject = addressesCellModels.remove(at: from)
       addressesCellModels.insert(movedObject, at: to)
     }
-  }
-  
-  private func cellBackgroundColor(on index: Int) -> UIColor {
-    if addresses[index].binder.isBinded() {
-      return cellBindedColor
-    }
-    
-    if let nextAddress = addresses[safe: index + 1], nextAddress.binder.isBinded() {
-      return cellBindedColor
-    }
-    
-    return cellDefaultColor
   }
   
   // MARK: - Actions
