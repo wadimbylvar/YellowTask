@@ -11,6 +11,11 @@ import RxSwift
 import RxCocoa
 import DTTableViewManager
 
+fileprivate let addAddressButtonHeight: CGFloat = 60
+fileprivate let addAddressButtonCornerRadius: CGFloat = addAddressButtonHeight / 2
+fileprivate let addAddressButtonCellHeight: CGFloat = addAddressButtonCellButtonInsets.top + addAddressButtonCellButtonInsets.bottom + addAddressButtonHeight
+fileprivate let addAddressButtonCellButtonInsets = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
+
 class AddressesViewController: TableViewController {
   
   // MARK: Properties
@@ -72,8 +77,12 @@ class AddressesViewController: TableViewController {
     }
     manager.configure(ButtonTableViewCell.self) { [weak self] (cell, model, indexPath) in
       cell.selectionStyle = .none
-      cell.buttonInsets = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
+      cell.buttonInsets = addAddressButtonCellButtonInsets
       self?.setupAddAddressButton(cell.button)
+    }
+    
+    manager.heightForCell(withItem: ButtonTableViewCellModel.self) { (model, indexPath) -> CGFloat in
+      return addAddressButtonCellHeight
     }
     
     manager.didSelect(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
@@ -141,8 +150,9 @@ class AddressesViewController: TableViewController {
   
   private func setupAddAddressButton(_ button: UIButton) {
     button.setTitleColor(.white, for: .normal)
-    button.backgroundColor = .blue
-    button.layer.cornerRadius = 5
+    button.backgroundColor = .bringozOrange
+    button.layer.cornerRadius = addAddressButtonCornerRadius
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
   }
   
   // MARK: - Models
