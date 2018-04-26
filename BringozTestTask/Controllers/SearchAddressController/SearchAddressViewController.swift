@@ -11,6 +11,15 @@ import RxSwift
 import RxCocoa
 import DTTableViewManager
 
+fileprivate let throttleInterval: RxTimeInterval = 0.3
+
+fileprivate enum LabelCellConfiguration {
+  static var labelInsets: UIEdgeInsets {
+    return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+  }
+}
+
+// MARK: -
 class SearchAddressViewController: TableViewController {
   
   // MARK: Properties
@@ -30,7 +39,7 @@ class SearchAddressViewController: TableViewController {
     searchBar.becomeFirstResponder()
     searchBar.rx.text
       .skip(1)
-      .throttle(0.3, scheduler: SerialDispatchQueueScheduler(qos: .default))
+      .throttle(throttleInterval, scheduler: SerialDispatchQueueScheduler(qos: .default))
       .flatMapLatest { [weak self] (text) -> Observable<[PresentableAddress]> in
         guard let wself = self else { return .empty() }
         guard let text = text, !text.isEmpty else {
@@ -50,7 +59,7 @@ class SearchAddressViewController: TableViewController {
     manager.register(LabelTableViewCell.self)
     
     manager.configure(LabelTableViewCell.self) { (cell, model, indexPath) in
-      cell.labelInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+      cell.labelInsets = LabelCellConfiguration.labelInsets
     }
     
     manager.didSelect(LabelTableViewCell.self) { [weak self] (cell, model, indexPath) in

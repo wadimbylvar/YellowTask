@@ -1,5 +1,5 @@
 //
-//  CoreLocationDistanceResolver.swift
+//  CoreLocationETACalculator.swift
 //  BringozTestTask
 //
 //  Created by Vadim Shikulo on 4/24/18.
@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-class CoreLocationDistanceResolver: DistanceResolver {
+class CoreLocationETACalculator: ETACalculator {
   func timeInterval(from: Address,
                     to: Address,
                     with speed: Double,

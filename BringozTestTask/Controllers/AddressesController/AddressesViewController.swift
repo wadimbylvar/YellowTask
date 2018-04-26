@@ -11,27 +11,41 @@ import RxSwift
 import RxCocoa
 import DTTableViewManager
 
-fileprivate let addAddressButtonHeight: CGFloat = 60
-fileprivate let addAddressButtonCornerRadius: CGFloat = addAddressButtonHeight / 2
-fileprivate let addAddressButtonCellHeight: CGFloat = addAddressButtonCellButtonInsets.top + addAddressButtonCellButtonInsets.bottom + addAddressButtonHeight
-fileprivate let addAddressButtonCellButtonInsets = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
+fileprivate enum AddAddressButtonConfiguration {
+  static var height: CGFloat {
+    return 60
+  }
+  static var font: UIFont {
+    return UIFont.systemFont(ofSize: 22, weight: .semibold)
+  }
+  static var cornerRadius: CGFloat {
+    return height / 2
+  }
+  static var cellHeight: CGFloat {
+    return cellButtonInsets.top + cellButtonInsets.bottom + height
+  }
+  static var cellButtonInsets: UIEdgeInsets {
+    return UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
+  }
+}
 
+// MARK: -
 class AddressesViewController: TableViewController {
   
   // MARK: Properties
   var addresses: [AddressWithETA] = []
   var addressesCellModels: [AddressETATableViewCellModel] = []
   
-  let speed = 10.0 // measured in m/sec
+  var speed = 10.0 // measured in m/sec
   
   let removeButton = UIBarButtonItem(title: "Reset", style: .plain, target: nil, action: nil)
   let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
   
-  lazy var distanceResolver: DistanceResolver = CoreLocationDistanceResolver()
+  lazy var distanceResolver: ETACalculator = CoreLocationETACalculator()
   
   lazy var etaDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MMM dd, hh:mma"
+    dateFormatter.dateFormat = DateFormats.addressETA
     dateFormatter.locale = Locale.autoupdatingCurrent
     dateFormatter.timeZone = TimeZone.autoupdatingCurrent
     return dateFormatter
@@ -77,12 +91,12 @@ class AddressesViewController: TableViewController {
     }
     manager.configure(ButtonTableViewCell.self) { [weak self] (cell, model, indexPath) in
       cell.selectionStyle = .none
-      cell.buttonInsets = addAddressButtonCellButtonInsets
+      cell.buttonInsets = AddAddressButtonConfiguration.cellButtonInsets
       self?.setupAddAddressButton(cell.button)
     }
     
     manager.heightForCell(withItem: ButtonTableViewCellModel.self) { (model, indexPath) -> CGFloat in
-      return addAddressButtonCellHeight
+      return AddAddressButtonConfiguration.height
     }
     
     manager.didSelect(AddressETATableViewCell.self) { [weak self] (cell, model, indexPath) in
@@ -151,8 +165,8 @@ class AddressesViewController: TableViewController {
   private func setupAddAddressButton(_ button: UIButton) {
     button.setTitleColor(.white, for: .normal)
     button.backgroundColor = .bringozOrange
-    button.layer.cornerRadius = addAddressButtonCornerRadius
-    button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+    button.layer.cornerRadius = AddAddressButtonConfiguration.cornerRadius
+    button.titleLabel?.font = AddAddressButtonConfiguration.font
   }
   
   // MARK: - Models

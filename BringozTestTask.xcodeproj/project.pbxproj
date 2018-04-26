@@ -15,14 +15,15 @@
 		DE16B8AA208F564D00DE88B7 /* GoogleAddressProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */; };
 		DE16B8AC208F6DD200DE88B7 /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8AB208F6DD200DE88B7 /* NSError+Extensions.swift */; };
 		DE16B8AF208F74C200DE88B7 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8AE208F74C200DE88B7 /* LabelTableViewCell.swift */; };
-		DE16B8B2208F810500DE88B7 /* DistanceResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */; };
-		DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */; };
+		DE16B8B2208F810500DE88B7 /* ETACalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B1208F810500DE88B7 /* ETACalculator.swift */; };
+		DE16B8B4208F825B00DE88B7 /* CoreLocationETACalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B3208F825B00DE88B7 /* CoreLocationETACalculator.swift */; };
 		DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */; };
 		DE16B8B82090823000DE88B7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16B8B72090823000DE88B7 /* Array+Extensions.swift */; };
 		DE30960A2090CD4A00A62D8B /* AddressWithETABinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */; };
 		DE30960F2091AC3800A62D8B /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30960E2091AC3800A62D8B /* RadioButton.swift */; };
 		DE3096112091ACAB00A62D8B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */; };
 		DE3096132091ADEA00A62D8B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096122091ADEA00A62D8B /* View.swift */; };
+		DE3096152091C21F00A62D8B /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3096142091C21F00A62D8B /* DateFormats.swift */; };
 		DE88DFE6208F33DD00CEF036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */; };
 		DE88DFED208F33DF00CEF036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEC208F33DF00CEF036 /* Assets.xcassets */; };
 		DE88DFF0208F33DF00CEF036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DFEE208F33DF00CEF036 /* LaunchScreen.storyboard */; };
@@ -47,14 +48,15 @@
 		DE16B8A9208F564D00DE88B7 /* GoogleAddressProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddressProvider.swift; sourceTree = "<group>"; };
 		DE16B8AB208F6DD200DE88B7 /* NSError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extensions.swift"; sourceTree = "<group>"; };
 		DE16B8AE208F74C200DE88B7 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
-		DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceResolver.swift; sourceTree = "<group>"; };
-		DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationDistanceResolver.swift; sourceTree = "<group>"; };
+		DE16B8B1208F810500DE88B7 /* ETACalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETACalculator.swift; sourceTree = "<group>"; };
+		DE16B8B3208F825B00DE88B7 /* CoreLocationETACalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationETACalculator.swift; sourceTree = "<group>"; };
 		DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETA.swift; sourceTree = "<group>"; };
 		DE16B8B72090823000DE88B7 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressWithETABinder.swift; sourceTree = "<group>"; };
 		DE30960E2091AC3800A62D8B /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		DE3096102091ACAB00A62D8B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3096122091ADEA00A62D8B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DE3096142091C21F00A62D8B /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		DE88DFE2208F33DD00CEF036 /* BringozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE88DFE5208F33DD00CEF036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE88DFEC208F33DF00CEF036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,8 +143,8 @@
 			children = (
 				DE3096092090CD4A00A62D8B /* AddressWithETABinder.swift */,
 				DE16B8B5208FB8D800DE88B7 /* AddressWithETA.swift */,
-				DE16B8B1208F810500DE88B7 /* DistanceResolver.swift */,
-				DE16B8B3208F825B00DE88B7 /* CoreLocationDistanceResolver.swift */,
+				DE16B8B1208F810500DE88B7 /* ETACalculator.swift */,
+				DE16B8B3208F825B00DE88B7 /* CoreLocationETACalculator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				DE88E003208F3C6300CEF036 /* UIKit */,
+				DE3096142091C21F00A62D8B /* DateFormats.swift */,
 			);
 			path = "Base Classes";
 			sourceTree = "<group>";
@@ -432,10 +435,11 @@
 				DE16B8AC208F6DD200DE88B7 /* NSError+Extensions.swift in Sources */,
 				DE88DFFA208F356600CEF036 /* AddressesViewController.swift in Sources */,
 				DE16B8B6208FB8D800DE88B7 /* AddressWithETA.swift in Sources */,
-				DE16B8B4208F825B00DE88B7 /* CoreLocationDistanceResolver.swift in Sources */,
+				DE16B8B4208F825B00DE88B7 /* CoreLocationETACalculator.swift in Sources */,
 				DE88E007208F3C9600CEF036 /* ButtonTableViewCell.swift in Sources */,
-				DE16B8B2208F810500DE88B7 /* DistanceResolver.swift in Sources */,
+				DE16B8B2208F810500DE88B7 /* ETACalculator.swift in Sources */,
 				DE30960A2090CD4A00A62D8B /* AddressWithETABinder.swift in Sources */,
+				DE3096152091C21F00A62D8B /* DateFormats.swift in Sources */,
 				DE16B8AF208F74C200DE88B7 /* LabelTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
