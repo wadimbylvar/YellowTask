@@ -122,45 +122,6 @@ class AddressesViewController: TableViewController {
     manager.canMove(AddressETATableViewCell.self) { (cell, model, indexPath) -> Bool in true }
     manager.canMove(ButtonTableViewCell.self) { (cell, model, indexPath) -> Bool in false }
     
-    manager.targetIndexPathForMove(AddressETATableViewCell.self) { [unowned self] (to, cell, model, from) -> IndexPath in
-      if from.section != to.section {
-        return from
-      }
-      
-      if to.row == 0 || to.row == self.addresses.count - 1 {
-        return to
-      }
-      
-      if from.row > to.row {
-        if let previousAddress = self.addresses[safe: to.row - 1],
-           let targetAddress = self.addresses[safe: to.row],
-           targetAddress.binder.isBinded(to: previousAddress) { return from }
-      } else {
-        if let previousAddress = self.addresses[safe: to.row],
-           let targetAddress = self.addresses[safe: to.row + 1],
-           targetAddress.binder.isBinded(to: previousAddress) { return from }
-      }
-      
-      return to
-    }
-    
-    manager.move(AddressETATableViewCell.self) { [weak self] (destinationIndexPath, cell, model, sourceIndexPath) in
-      guard let wself = self else { return }
-      wself.manager.memoryStorage.moveItemWithoutAnimation(from: sourceIndexPath, to: destinationIndexPath)
-      
-      if sourceIndexPath != destinationIndexPath {
-        wself.unbindModel(at: sourceIndexPath.row)
-        
-        let nextItemIndex = sourceIndexPath.row + 1
-        if nextItemIndex < wself.addresses.count {
-          wself.unbindModel(at: nextItemIndex)
-        }
-      }
-      
-      wself.moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
-      wself.recalculateETA()
-    }
-    
     manager.memoryStorage.setItemsForAllSections(cellModels())
   }
   
@@ -273,6 +234,10 @@ class AddressesViewController: TableViewController {
       let movedObject = addressesCellModels.remove(at: from)
       addressesCellModels.insert(movedObject, at: to)
     }
+    
+    let fromIndexPath = IndexPath(row: from, section: 0)
+    let toIndexPath = IndexPath(row: to, section: 0)
+    manager.memoryStorage.moveItemWithoutAnimation(from: fromIndexPath, to: toIndexPath)
   }
   
   private func bindModel(at index: Int, to model: AddressWithETA, rule: AddressBindingRule? = nil) {
@@ -305,6 +270,7 @@ class AddressesViewController: TableViewController {
   }
 }
 
+// MARK: - UITableViewDelegate
 extension AddressesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
     return .none
@@ -312,5 +278,52 @@ extension AddressesViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
     return false
+  }
+  
+  func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt from: IndexPath, toProposedIndexPath to: IndexPath) -> IndexPath {
+    if from.section != to.section {
+      return from
+    }
+    
+    if to.row == 0 || to.row == self.addresses.count - 1 {
+      return to
+    }
+    
+    if from.row > to.row {
+      if let previousAddress = self.addresses[safe: to.row - 1],
+        let targetAddress = self.addresses[safe: to.row],
+        targetAddress.binder.isBinded(to: previousAddress) { return from }
+    } else {
+      if let previousAddress = self.addresses[safe: to.row],
+        let targetAddress = self.addresses[safe: to.row + 1],
+        targetAddress.binder.isBinded(to: previousAddress) { return from }
+    }
+    
+    return to
+  }
+}
+
+// MARK: - UITableViewDataSource
+extension AddressesViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    fatalError("This method is just a stub for `UITableViewDataSource` protocol conformance. It must be handled in DTTableViewManager.")
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    fatalError("This method is just a stub for `UITableViewDataSource` protocol conformance. It must be handled in DTTableViewManager.")
+  }
+  
+  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    if sourceIndexPath != destinationIndexPath {
+      unbindModel(at: sourceIndexPath.row)
+      
+      let nextItemIndex = sourceIndexPath.row + 1
+      if nextItemIndex < addresses.count {
+        unbindModel(at: nextItemIndex)
+      }
+    }
+    
+    moveModel(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    recalculateETA()
   }
 }
